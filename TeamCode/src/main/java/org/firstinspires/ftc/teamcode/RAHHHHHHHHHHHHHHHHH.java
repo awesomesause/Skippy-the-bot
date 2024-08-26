@@ -28,38 +28,46 @@ public class RAHHHHHHHHHHHHHHHHH extends OpMode {
 //the reason why this is here is just to set up //
     @Override
     public void loop() {
-telemetry.addData("", gamepad1.left_stick_y);
-
         if(gamepad1.left_stick_y > 0) {
-            fl.setPower(1);
-            fr.setPower(1);
-            bl.setPower(1);
-            br.setPower(1);
+            fl.setPower(0.5);
+            fr.setPower(0.5);
+            bl.setPower(0.5);
+            br.setPower(0.5);
         }
 
         else if(gamepad1.right_stick_x > 0) {
-            fl.setPower(1);
+            fl.setPower(-0.5);
+            fr.setPower(-0.5);
+            bl.setPower(-0.5);
+            br.setPower(-0.5);
+
+        }
+             else if(gamepad1.a){
+            fl.setPower(0.5);
             fr.setPower(0);
-            bl.setPower(1);
+            bl.setPower(0.5);
             br.setPower(0);
 
+
+             }
+
+             else if(gamepad1.b){
+
+            fl.setPower(0.5);
+            fr.setPower(-0.5);
+            bl.setPower(0.5);
+            br.setPower(-0.5);
+
         }
 
-        else if(gamepad1.a) {
-
-
-        }
-        else {
+             else {
             fl.setPower(0);
             fr.setPower(0);
             bl.setPower(0);
             br.setPower(0);
-
+        }
         }
 
 
     }
-}
-
-
 
