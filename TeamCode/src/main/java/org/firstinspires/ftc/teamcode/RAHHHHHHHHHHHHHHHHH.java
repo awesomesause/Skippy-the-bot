@@ -4,6 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 
 @TeleOp(name = "name it something")
 public class RAHHHHHHHHHHHHHHHHH extends OpMode {
@@ -12,7 +13,8 @@ public class RAHHHHHHHHHHHHHHHHH extends OpMode {
     DcMotor fr;
     DcMotor bl;
     DcMotor br;
-
+    Servo wrist;
+    Servo claw;
     @Override
     public void init() {
         fl = (DcMotor) hardwareMap.get("fl");
@@ -24,6 +26,9 @@ public class RAHHHHHHHHHHHHHHHHH extends OpMode {
         fr.setDirection(DcMotorSimple.Direction.FORWARD);
         bl.setDirection(DcMotorSimple.Direction.REVERSE);
         br.setDirection(DcMotorSimple.Direction.FORWARD);
+
+        wrist = (Servo) hardwareMap.get("wrist");
+        claw = (Servo) hardwareMap.get("claw");
     }
 //the reason why this is here is just to set up //
     @Override
@@ -59,14 +64,23 @@ public class RAHHHHHHHHHHHHHHHHH extends OpMode {
             br.setPower(-0.5);
 
         }
+            else if(gamepad1.dpad_up){
+              wrist.setPosition(5);
 
+        }
+            else if(gamepad1.dpad_down){
+
+                claw.setPosition(1);
+        }
              else {
             fl.setPower(0);
             fr.setPower(0);
             bl.setPower(0);
             br.setPower(0);
         }
-        }
+
+
+    }
 
 
     }
